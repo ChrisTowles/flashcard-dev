@@ -1,0 +1,22 @@
+{
+  "name": "flashcards-dev",
+  "version": "1.0.0",
+  "description": "Markdown Based Flashcards using Spaced repetition for Developers",
+  "keywords": [
+    "flashcards",
+    "spaced-repetition",
+    "markdown",
+    "cli"
+  ],
+  "license": "MIT",
+  "author": "Chris Towles",
+  "packageManager": "pnpm@7.12.0",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  
+}

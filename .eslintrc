@@ -1,0 +1,16 @@
+{
+  "env": {
+    "node": true
+  },
+  "globals": {
+    "__DEV__": true
+  },
+  // "extends": "eslint:recommended",
+  "rules": {
+    "vue/no-lone-template": "off",
+    "vue/require-prop-types": "off",
+    "vue/require-default-prop": "off",
+    "import/named": "off",
+    "import/namespace": "off"
+  }
+}

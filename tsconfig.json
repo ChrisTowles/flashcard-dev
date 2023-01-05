@@ -1,0 +1,35 @@
+{
+    "compilerOptions": {
+      "module": "ESNext",
+      "baseUrl": ".",
+      "target": "es2016",
+      "lib": ["DOM", "ESNext"],
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "noUnusedLocals": true,
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "strictNullChecks": true,
+      "forceConsistentCasingInFileNames": true,
+      "types": [
+        "vite/client",
+        "node",
+        "vite-plugin-vue-server-ref/module"
+      ],
+      "paths": {
+        "@flashcard-dev/client/*": ["./packages/client/*"],
+        "@flashcard-dev/parser": ["./packages/parser/src/index.ts"],
+        "@flashcard-dev/types": ["./packages/types/src/index.ts"],
+      },
+      "jsx": "preserve"
+    },
+    "include": [
+      "./*.ts",
+      "./docs/.vitepress/**/*.ts",
+      "./docs/.vitepress/**/*.vue",
+      "./packages/**/*.ts",
+      "./packages/**/*.vue"
+    ],
+    "exclude": ["**/dist/**", "node_modules"]
+  }
