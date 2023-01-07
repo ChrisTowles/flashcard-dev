@@ -1,0 +1,32 @@
+{
+  "name": "@flashcard-dev/types",
+  "version": "0.0.1",
+  "description": "Shared types declerations for FlashcardDev",
+  "author": "Chris Towles <chris.towles.dev01@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/ChrisTowles/flashcards-dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChrisTowles/flashcards-dev"
+  },
+  "bugs": "https://github.com/ChrisTowles/flashcards-dev/issues",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "index.d.ts",
+  "files": [
+    "dist",
+    "client.d.ts",
+    "index.d.ts"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --splitting",
+    "dev": "nr build --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "tsup": "^5.12.7"
+  }
+}
