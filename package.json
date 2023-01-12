@@ -1,9 +1,9 @@
 {
-  "name": "flashcards-dev/monorepo",
+  "name": "flashcard-dev/monorepo",
   "version": "0.0.1",
   "description": "Markdown Based Flashcards using Spaced repetition for Developers",
   "keywords": [
-    "flashcards",
+    "flashcard",
     "spaced-repetition",
     "markdown",
     "cli"
@@ -11,30 +11,32 @@
   "license": "MIT",
   "author": "Chris Towles <chris.towles.dev01@gmail.com>",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "upgrade:write": "taze --recursive --write --install",
+    "upgrade:check": "taze --recursive"
   },
- 
   "devDependencies": {
     "@antfu/ni": "^0.18.8",
-    "@types/node": "^18.11.17",
+    "@types/node": "^18.11.18",
     "@types/prompts": "^2.4.2",
-    "@types/yargs": "^17.0.17",
-    "@typescript-eslint/eslint-plugin": "^5.47.1",
-    "@typescript-eslint/parser": "^5.46.1",
+    "@types/yargs": "^17.0.19",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
     "bumpp": "^8.2.1",
     "cross-env": "^7.0.3",
-    "eslint": "^8.30.0",
+    "eslint": "^8.31.0",
     "esno": "^0.16.3",
     "lint-staged": "^13.1.0",
-    "playwright-chromium": "^1.28.1",
-    "pnpm": "^7.21.0",
+    "playwright-chromium": "^1.29.2",
+    "pnpm": "^7.24.3",
     "prompts": "^2.4.2",
     "rimraf": "^3.0.2",
     "simple-git-hooks": "^2.8.1",
+    "taze": "^0.4.6",
     "tsup": "^6.5.0",
     "typescript": "^4.9.4",
-    "vite": "^4.0.3",
-    "vitest": "^0.26.2",
+    "vite": "^4.0.4",
+    "vitest": "^0.26.3",
     "yargs": "^17.6.2",
     "zx": "^7.1.1"
   },
