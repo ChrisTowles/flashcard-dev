@@ -13,9 +13,9 @@
       "strictNullChecks": true,
       "forceConsistentCasingInFileNames": true,
       "types": [
-        "vite/client",
+        // "vite/client",
         "node",
-        "vite-plugin-vue-server-ref/module"
+        // "vite-plugin-vue-server-ref/module"
       ],
       "paths": {
         "@flashcard-dev/client/*": ["./packages/client/*"],
