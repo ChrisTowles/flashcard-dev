@@ -9,7 +9,8 @@ export function parseMarkdownFile(raw: string): string {
 }
 
 export async function parse( 
-{ markdown, filepath, extensions, themeMeta, onHeadmatter }: { markdown: string; filepath?: string; extensions?: FlashcardDevPreparserExtension[]; themeMeta?: FlashcardDevThemeMeta; onHeadmatter?: PreparserExtensionFromHeadmatter }): Promise<FlashcardDevMarkdown> {
+{ markdown, filepath, extensions, themeMeta, onHeadmatter }: 
+{ markdown: string, filepath?: string,  themeMeta?: FlashcardDevThemeMeta,  extensions?: FlashcardDevPreparserExtension[], onHeadmatter?: PreparserExtensionFromHeadmatter }): Promise<FlashcardDevMarkdown> {
   const lines = markdown.split(/\r?\n/g)
   const slides: FlashcardInfo[] = []
 
