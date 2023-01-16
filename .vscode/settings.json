@@ -4,4 +4,27 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "cSpell.words": [
+    "antfu",
+    "bumpp",
+    "Consolas",
+    "esno",
+    "Fira",
+    "Headmatter",
+    "Hightlighter",
+    "katex",
+    "Menlo",
+    "Neue",
+    "Noto",
+    "preparser",
+    "Roboto",
+    "Segoe",
+    "shiki",
+    "taze",
+    "tsup",
+    "webfonts",
+    "wght",
+    "Windi",
+    "windicss"
+  ],
 }

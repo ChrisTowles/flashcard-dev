@@ -1,5 +1,5 @@
 {
-  "name": "flashcard-dev/monorepo",
+  "name": "@flashcard-dev/monorepo",
   "version": "0.0.1",
   "description": "Markdown Based Flashcards using Spaced repetition for Developers",
   "keywords": [
@@ -11,7 +11,7 @@
   "license": "MIT",
   "author": "Chris Towles <chris.towles.dev01@gmail.com>",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest test",
     "upgrade:write": "taze --recursive --write --install",
     "upgrade:check": "taze --recursive"
   },

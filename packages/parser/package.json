@@ -23,9 +23,19 @@
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts --splitting",
     "dev": "nr build --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@antfu/utils": "^0.7.2",
+    "@flashcard-dev/types": "workspace:*",
+    "js-yaml": "^4.1.0"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.5",
+    "@types/markdown-it": "^12.2.3",
+    "fast-glob": "^3.2.12",
+    "markdown-it": "^13.0.1",
     "tsup": "^5.12.9"
   }
 }

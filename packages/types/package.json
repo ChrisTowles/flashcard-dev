@@ -1,7 +1,7 @@
 {
   "name": "@flashcard-dev/types",
   "version": "0.0.1",
-  "description": "Shared types declerations for FlashcardDev",
+  "description": "Shared types decelerations for FlashcardDev",
   "author": "Chris Towles <chris.towles.dev01@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/ChrisTowles/flashcard-dev",
