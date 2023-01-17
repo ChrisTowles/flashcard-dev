@@ -26,7 +26,15 @@ export async function parse(
       start,
       end,
     }
-    
+    if (extensions) {
+      for (const e of extensions) {
+        if (e.transformSlide) {
+          const newContent = await e.transformSlide(slide.content, slide.frontmatter)
+          if (newContent !== undefined)
+            slide.content = newContent
+        }
+      }
+    }
     slides.push(slide)
     start = end + 1
   }
