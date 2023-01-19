@@ -6,11 +6,15 @@ import type { FlashcardDevPreparserExtension } from '@flashcard-dev/types'
 
 describe('md parser', () => {
   const files = fg.sync('*.md', {
-    cwd: resolve(__dirname, '../test/fixtures/markdown'),
+    cwd: resolve(__dirname, '../tests/fixtures/markdown'),
     absolute: true,
   })
-
+  if(files.length === 0) {
+    throw new Error('No test files found')
+  }
+  
   for (const file of files) {
+  
     it(basename(file), async () => {
       const data = await load(file)
 

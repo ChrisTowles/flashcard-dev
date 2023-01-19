@@ -1,0 +1,917 @@
+// Vitest Snapshot v1
+
+exports[`md parser > frontmatter.md > cards 1`] = `
+[
+  {
+    "content": "
+# Hi
+",
+    "end": 8,
+    "frontmatter": {
+      "fonts": {
+        "mono": "Fira Code",
+        "sans": "Roboto, Lato",
+        "serif": "Mate SC",
+      },
+      "layout": "cover",
+      "title": "Hi",
+    },
+    "index": 0,
+    "level": 1,
+    "note": undefined,
+    "raw": "---
+layout: cover
+fonts:
+  sans: Roboto, Lato
+  serif: Mate SC
+  mono: Fira Code
+title: Hi
+---
+
+# Hi
+
+",
+    "start": 0,
+    "title": "Hi",
+  },
+  {
+    "content": "
+# Hello
+",
+    "end": 16,
+    "frontmatter": {
+      "layout": "center",
+      "meta": {
+        "duration": 12,
+        "title": "FooBar",
+      },
+    },
+    "index": 1,
+    "level": 1,
+    "note": "This is note",
+    "raw": "---
+meta:
+  title: FooBar
+  duration: 12
+layout: center
+---
+
+# Hello
+
+<!--
+This is note
+-->
+",
+    "start": 8,
+    "title": "Hello",
+  },
+  {
+    "content": "
+# Morning
+",
+    "end": 19,
+    "frontmatter": {},
+    "index": 2,
+    "level": 1,
+    "note": undefined,
+    "raw": "
+# Morning
+
+",
+    "start": 17,
+    "title": "Morning",
+  },
+  {
+    "content": "
+<!-- This is not note -->
+Hey
+",
+    "end": 26,
+    "frontmatter": {
+      "layout": "text",
+    },
+    "index": 3,
+    "level": undefined,
+    "note": "This is note",
+    "raw": "---
+layout: text
+---
+
+<!-- This is not note -->
+Hey
+
+<!--
+This is note
+-->
+",
+    "start": 19,
+    "title": undefined,
+  },
+  {
+    "content": "
+\`\`\`md
+---
+this should be treated as code block
+---
+----
+\`\`\`
+",
+    "end": 35,
+    "frontmatter": {},
+    "index": 4,
+    "level": undefined,
+    "note": undefined,
+    "raw": "
+\`\`\`md
+---
+this should be treated as code block
+---
+----
+\`\`\`
+
+",
+    "start": 27,
+    "title": undefined,
+  },
+]
+`;
+
+exports[`md parser > frontmatter.md > config 1`] = `
+{
+  "aspectRatio": 1.7777777777777777,
+  "canvasWidth": 980,
+  "codeCopy": true,
+  "colorSchema": "auto",
+  "css": "windicss",
+  "download": false,
+  "exportFilename": "",
+  "favicon": "/favicon-wrong-path.ico",
+  "fonts": {
+    "italic": false,
+    "local": [],
+    "mono": [
+      "\\"Fira Code\\"",
+      "ui-monospace",
+      "SFMono-Regular",
+      "Menlo",
+      "Monaco",
+      "Consolas",
+      "\\"Liberation Mono\\"",
+      "\\"Courier New\\"",
+      "monospace",
+    ],
+    "provider": "google",
+    "sans": [
+      "\\"Roboto\\"",
+      "\\"Lato\\"",
+      "ui-sans-serif",
+      "system-ui",
+      "-apple-system",
+      "BlinkMacSystemFont",
+      "\\"Segoe UI\\"",
+      "Roboto",
+      "\\"Helvetica Neue\\"",
+      "Arial",
+      "\\"Noto Sans\\"",
+      "sans-serif",
+      "\\"Apple Color Emoji\\"",
+      "\\"Segoe UI Emoji\\"",
+      "\\"Segoe UI Symbol\\"",
+      "\\"Noto Color Emoji\\"",
+    ],
+    "serif": [
+      "\\"Mate SC\\"",
+      "ui-serif",
+      "Georgia",
+      "Cambria",
+      "\\"Times New Roman\\"",
+      "Times",
+      "serif",
+    ],
+    "webfonts": [
+      "Roboto",
+      "Lato",
+      "Mate SC",
+      "Fira Code",
+    ],
+    "weights": [
+      "200",
+      "400",
+      "600",
+    ],
+  },
+  "info": false,
+  "layout": "cover",
+  "lineNumbers": false,
+  "monaco": "dev",
+  "remoteAssets": false,
+  "routerMode": "history",
+  "selectable": false,
+  "theme": "default",
+  "themeConfig": {},
+  "title": "Hi",
+  "titleTemplate": "%s - Flashcard-Dev",
+}
+`;
+
+exports[`md parser > frontmatter.md > features 1`] = `
+{
+  "katex": false,
+  "mermaid": false,
+  "monaco": false,
+  "tweet": false,
+}
+`;
+
+exports[`md parser > minimal.md > cards 1`] = `
+[
+  {
+    "content": "
+# H1
+## H2
+### H3
+
+Sample Text
+
+\`\`\`ts
+console.log('Hello World')
+\`\`\`
+",
+    "end": 10,
+    "frontmatter": {
+      "title": "H1",
+    },
+    "index": 0,
+    "level": 1,
+    "note": undefined,
+    "raw": "---
+title: H1
+---
+
+# H1
+## H2
+### H3
+
+Sample Text
+
+\`\`\`ts
+console.log('Hello World')
+\`\`\`
+
+",
+    "start": 0,
+    "title": "H1",
+  },
+  {
+    "content": "
+# Hello
+
+- Hello
+- Hi
+- Hey
+- Yo
+",
+    "end": 18,
+    "frontmatter": {},
+    "index": 1,
+    "level": 1,
+    "note": undefined,
+    "raw": "
+# Hello
+
+- Hello
+- Hi
+- Hey
+- Yo
+
+",
+    "start": 11,
+    "title": "Hello",
+  },
+  {
+    "content": "
+Nice to meet you
+",
+    "end": 22,
+    "frontmatter": {},
+    "index": 2,
+    "level": undefined,
+    "note": undefined,
+    "raw": "
+Nice to meet you
+
+",
+    "start": 19,
+    "title": undefined,
+  },
+]
+`;
+
+exports[`md parser > minimal.md > config 1`] = `
+{
+  "aspectRatio": 1.7777777777777777,
+  "canvasWidth": 980,
+  "codeCopy": true,
+  "colorSchema": "auto",
+  "css": "windicss",
+  "download": false,
+  "exportFilename": "",
+  "favicon": "/favicon-wrong-path.ico",
+  "fonts": {
+    "italic": false,
+    "local": [],
+    "mono": [
+      "ui-monospace",
+      "SFMono-Regular",
+      "Menlo",
+      "Monaco",
+      "Consolas",
+      "\\"Liberation Mono\\"",
+      "\\"Courier New\\"",
+      "monospace",
+    ],
+    "provider": "google",
+    "sans": [
+      "ui-sans-serif",
+      "system-ui",
+      "-apple-system",
+      "BlinkMacSystemFont",
+      "\\"Segoe UI\\"",
+      "Roboto",
+      "\\"Helvetica Neue\\"",
+      "Arial",
+      "\\"Noto Sans\\"",
+      "sans-serif",
+      "\\"Apple Color Emoji\\"",
+      "\\"Segoe UI Emoji\\"",
+      "\\"Segoe UI Symbol\\"",
+      "\\"Noto Color Emoji\\"",
+    ],
+    "serif": [
+      "ui-serif",
+      "Georgia",
+      "Cambria",
+      "\\"Times New Roman\\"",
+      "Times",
+      "serif",
+    ],
+    "webfonts": [],
+    "weights": [
+      "200",
+      "400",
+      "600",
+    ],
+  },
+  "info": false,
+  "lineNumbers": false,
+  "monaco": "dev",
+  "remoteAssets": false,
+  "routerMode": "history",
+  "selectable": false,
+  "theme": "default",
+  "themeConfig": {},
+  "title": "H1",
+  "titleTemplate": "%s - Flashcard-Dev",
+}
+`;
+
+exports[`md parser > minimal.md > features 1`] = `
+{
+  "katex": false,
+  "mermaid": false,
+  "monaco": false,
+  "tweet": false,
+}
+`;
+
+exports[`md parser > multi-entries.md > cards 1`] = `
+[
+  {
+    "content": "
+# Page 1
+",
+    "end": 2,
+    "frontmatter": {
+      "srcSequence": "sub/page1.md",
+      "title": undefined,
+    },
+    "index": 0,
+    "inline": {
+      "content": "",
+      "end": 4,
+      "frontmatter": {
+        "title": undefined,
+      },
+      "index": 0,
+      "level": undefined,
+      "note": undefined,
+      "raw": "---
+src: sub/page1.md
+---
+",
+      "start": 0,
+      "title": undefined,
+    },
+    "level": 1,
+    "note": undefined,
+    "raw": "---
+srcSequence: sub/page1.md
+---
+
+# Page 1
+
+",
+    "source": {
+      "content": "# Page 1",
+      "end": 2,
+      "frontmatter": {
+        "title": "Page 1",
+      },
+      "index": 0,
+      "level": 1,
+      "note": undefined,
+      "raw": "# Page 1
+",
+      "start": 0,
+      "title": "Page 1",
+    },
+    "start": 0,
+    "title": "Page 1",
+  },
+  {
+    "content": "
+# Page 2
+
+<Tweet />
+",
+    "end": 8,
+    "frontmatter": {
+      "background": "https://sli.dev/demo-cover.png#2",
+      "layout": "cover",
+      "srcSequence": "/sub/page2.md",
+      "title": "Page 2",
+    },
+    "index": 1,
+    "inline": {
+      "content": "",
+      "end": 9,
+      "frontmatter": {
+        "background": "https://sli.dev/demo-cover.png#2",
+      },
+      "index": 1,
+      "level": undefined,
+      "note": undefined,
+      "raw": "---
+src: /sub/page2.md
+background: https://sli.dev/demo-cover.png#2
+---
+",
+      "start": 4,
+      "title": undefined,
+    },
+    "level": 1,
+    "note": undefined,
+    "raw": "---
+layout: cover
+title: Page 2
+background: https://sli.dev/demo-cover.png#2
+srcSequence: /sub/page2.md
+---
+
+# Page 2
+
+<Tweet />
+
+",
+    "source": {
+      "content": "# Page 2
+
+<Tweet />",
+      "end": 8,
+      "frontmatter": {
+        "layout": "cover",
+        "title": "Page 2",
+      },
+      "index": 0,
+      "level": 1,
+      "note": undefined,
+      "raw": "---
+layout: cover
+---
+
+# Page 2
+
+<Tweet />
+",
+      "start": 0,
+      "title": "Page 2",
+    },
+    "start": 0,
+    "title": "Page 2",
+  },
+  {
+    "content": "
+# Page 3
+",
+    "end": 2,
+    "frontmatter": {
+      "background": "https://sli.dev/demo-cover.png#34",
+      "srcSequence": "./sub/pages3-4.md",
+      "title": "Page 3",
+    },
+    "index": 2,
+    "inline": {
+      "content": "",
+      "end": 14,
+      "frontmatter": {
+        "background": "https://sli.dev/demo-cover.png#34",
+      },
+      "index": 2,
+      "level": undefined,
+      "note": undefined,
+      "raw": "---
+src: ./sub/pages3-4.md
+background: https://sli.dev/demo-cover.png#34
+---
+",
+      "start": 9,
+      "title": undefined,
+    },
+    "level": 1,
+    "note": undefined,
+    "raw": "---
+title: Page 3
+background: https://sli.dev/demo-cover.png#34
+srcSequence: ./sub/pages3-4.md
+---
+
+# Page 3
+
+",
+    "source": {
+      "content": "# Page 3",
+      "end": 2,
+      "frontmatter": {
+        "title": "Page 3",
+      },
+      "index": 0,
+      "level": 1,
+      "note": undefined,
+      "raw": "# Page 3
+",
+      "start": 0,
+      "title": "Page 3",
+    },
+    "start": 0,
+    "title": "Page 3",
+  },
+  {
+    "content": "
+# Page 4
+
+<Tweet />
+",
+    "end": 10,
+    "frontmatter": {
+      "background": "https://sli.dev/demo-cover.png#34",
+      "layout": "cover",
+      "srcSequence": "./sub/pages3-4.md",
+    },
+    "index": 3,
+    "level": 1,
+    "note": undefined,
+    "raw": "---
+layout: cover
+background: https://sli.dev/demo-cover.png#34
+srcSequence: ./sub/pages3-4.md
+---
+
+# Page 4
+
+<Tweet />
+
+",
+    "source": {
+      "content": "# Page 4
+
+<Tweet />",
+      "end": 10,
+      "frontmatter": {
+        "layout": "cover",
+      },
+      "index": 1,
+      "level": 1,
+      "note": undefined,
+      "raw": "---
+layout: cover
+---
+
+# Page 4
+
+<Tweet />
+",
+      "start": 2,
+      "title": "Page 4",
+    },
+    "start": 2,
+    "title": "Page 4",
+  },
+  {
+    "content": "
+# Page 1
+",
+    "end": 2,
+    "frontmatter": {
+      "background": "https://sli.dev/demo-cover.png#14",
+      "srcSequence": "sub/nested1-4.md,/sub/page1.md",
+      "title": undefined,
+    },
+    "index": 4,
+    "inline": {
+      "content": "",
+      "end": 19,
+      "frontmatter": {
+        "background": "https://sli.dev/demo-cover.png#14",
+      },
+      "index": 3,
+      "level": undefined,
+      "note": undefined,
+      "raw": "---
+src: sub/nested1-4.md
+background: https://sli.dev/demo-cover.png#14
+---
+",
+      "start": 14,
+      "title": undefined,
+    },
+    "level": 1,
+    "note": undefined,
+    "raw": "---
+background: https://sli.dev/demo-cover.png#14
+srcSequence: sub/nested1-4.md,/sub/page1.md
+---
+
+# Page 1
+
+",
+    "source": {
+      "content": "# Page 1",
+      "end": 2,
+      "frontmatter": {
+        "title": "Page 1",
+      },
+      "index": 0,
+      "level": 1,
+      "note": undefined,
+      "raw": "# Page 1
+",
+      "start": 0,
+      "title": "Page 1",
+    },
+    "start": 0,
+    "title": "Page 1",
+  },
+  {
+    "content": "
+# Page 2
+
+<Tweet />
+",
+    "end": 8,
+    "frontmatter": {
+      "background": "https://sli.dev/demo-cover.png#14",
+      "layout": "cover",
+      "srcSequence": "sub/nested1-4.md,page2.md",
+      "title": "Page 2",
+    },
+    "index": 5,
+    "level": 1,
+    "note": undefined,
+    "raw": "---
+layout: cover
+title: Page 2
+background: https://sli.dev/demo-cover.png#14
+srcSequence: sub/nested1-4.md,page2.md
+---
+
+# Page 2
+
+<Tweet />
+
+",
+    "source": {
+      "content": "# Page 2
+
+<Tweet />",
+      "end": 8,
+      "frontmatter": {
+        "layout": "cover",
+        "title": "Page 2",
+      },
+      "index": 0,
+      "level": 1,
+      "note": undefined,
+      "raw": "---
+layout: cover
+---
+
+# Page 2
+
+<Tweet />
+",
+      "start": 0,
+      "title": "Page 2",
+    },
+    "start": 0,
+    "title": "Page 2",
+  },
+  {
+    "content": "
+# Page 3
+",
+    "end": 2,
+    "frontmatter": {
+      "background": "https://sli.dev/demo-cover.png#14",
+      "srcSequence": "sub/nested1-4.md,../sub/pages3-4.md",
+      "title": "Page 3",
+    },
+    "index": 6,
+    "level": 1,
+    "note": undefined,
+    "raw": "---
+title: Page 3
+background: https://sli.dev/demo-cover.png#14
+srcSequence: sub/nested1-4.md,../sub/pages3-4.md
+---
+
+# Page 3
+
+",
+    "source": {
+      "content": "# Page 3",
+      "end": 2,
+      "frontmatter": {
+        "title": "Page 3",
+      },
+      "index": 0,
+      "level": 1,
+      "note": undefined,
+      "raw": "# Page 3
+",
+      "start": 0,
+      "title": "Page 3",
+    },
+    "start": 0,
+    "title": "Page 3",
+  },
+  {
+    "content": "
+# Page 4
+
+<Tweet />
+",
+    "end": 10,
+    "frontmatter": {
+      "background": "https://sli.dev/demo-cover.png#14",
+      "layout": "cover",
+      "srcSequence": "sub/nested1-4.md,../sub/pages3-4.md",
+    },
+    "index": 7,
+    "level": 1,
+    "note": undefined,
+    "raw": "---
+layout: cover
+background: https://sli.dev/demo-cover.png#14
+srcSequence: sub/nested1-4.md,../sub/pages3-4.md
+---
+
+# Page 4
+
+<Tweet />
+
+",
+    "source": {
+      "content": "# Page 4
+
+<Tweet />",
+      "end": 10,
+      "frontmatter": {
+        "layout": "cover",
+      },
+      "index": 1,
+      "level": 1,
+      "note": undefined,
+      "raw": "---
+layout: cover
+---
+
+# Page 4
+
+<Tweet />
+",
+      "start": 2,
+      "title": "Page 4",
+    },
+    "start": 2,
+    "title": "Page 4",
+  },
+  {
+    "content": "
+# Inline Page
+
+$x+2$
+",
+    "end": 25,
+    "frontmatter": {},
+    "index": 8,
+    "level": 1,
+    "note": undefined,
+    "raw": "
+# Inline Page
+
+$x+2$
+
+",
+    "start": 20,
+    "title": "Inline Page",
+  },
+]
+`;
+
+exports[`md parser > multi-entries.md > config 1`] = `
+{
+  "aspectRatio": 1.7777777777777777,
+  "canvasWidth": 980,
+  "codeCopy": true,
+  "colorSchema": "auto",
+  "css": "windicss",
+  "download": false,
+  "exportFilename": "",
+  "favicon": "/favicon-wrong-path.ico",
+  "fonts": {
+    "italic": false,
+    "local": [],
+    "mono": [
+      "ui-monospace",
+      "SFMono-Regular",
+      "Menlo",
+      "Monaco",
+      "Consolas",
+      "\\"Liberation Mono\\"",
+      "\\"Courier New\\"",
+      "monospace",
+    ],
+    "provider": "google",
+    "sans": [
+      "ui-sans-serif",
+      "system-ui",
+      "-apple-system",
+      "BlinkMacSystemFont",
+      "\\"Segoe UI\\"",
+      "Roboto",
+      "\\"Helvetica Neue\\"",
+      "Arial",
+      "\\"Noto Sans\\"",
+      "sans-serif",
+      "\\"Apple Color Emoji\\"",
+      "\\"Segoe UI Emoji\\"",
+      "\\"Segoe UI Symbol\\"",
+      "\\"Noto Color Emoji\\"",
+    ],
+    "serif": [
+      "ui-serif",
+      "Georgia",
+      "Cambria",
+      "\\"Times New Roman\\"",
+      "Times",
+      "serif",
+    ],
+    "webfonts": [],
+    "weights": [
+      "200",
+      "400",
+      "600",
+    ],
+  },
+  "info": false,
+  "lineNumbers": false,
+  "monaco": "dev",
+  "remoteAssets": false,
+  "routerMode": "history",
+  "selectable": false,
+  "src": "sub/page1.md",
+  "theme": "default",
+  "themeConfig": {},
+  "title": undefined,
+  "titleTemplate": "%s - Flashcard-Dev",
+}
+`;
+
+exports[`md parser > multi-entries.md > features 1`] = `
+{
+  "katex": true,
+  "mermaid": false,
+  "monaco": false,
+  "tweet": true,
+}
+`;
