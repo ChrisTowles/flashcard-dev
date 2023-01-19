@@ -12,7 +12,7 @@ export async function parse(
 { markdown, filepath, extensions, themeMeta, onHeadmatter }: 
 { markdown: string, filepath?: string,  themeMeta?: FlashcardDevThemeMeta,  extensions?: FlashcardDevPreparserExtension[], onHeadmatter?: PreparserExtensionFromHeadmatter }): Promise<FlashcardDevMarkdown> {
   const lines = markdown.split(/\r?\n/g)
-  const slides: FlashcardInfo[] = []
+  const cards: FlashcardInfo[] = []
 
   let start = 0
 
@@ -20,22 +20,23 @@ export async function parse(
     if (start === end)
       return
     const raw = lines.slice(start, end).join('\n')
-    const slide = {
-      ...parseSlide(raw),
-      index: slides.length,
+    const card = {
+      ...parseCard(raw),
+      index: cards.length,
       start,
       end,
     }
     if (extensions) {
       for (const e of extensions) {
-        if (e.transformSlide) {
-          const newContent = await e.transformSlide(slide.content, slide.frontmatter)
-          if (newContent !== undefined)
-            slide.content = newContent
+        if (e.transformCard) {
+          const newContent = await e.transformCard(card.content, card.frontmatter)
+          if (newContent !== undefined) {
+            card.content = newContent
+          }
         }
       }
     }
-    slides.push(slide)
+    cards.push(card)
     start = end + 1
   }
 
@@ -89,15 +90,15 @@ export async function parse(
   if (start <= lines.length - 1)
     await slice(lines.length)
 
-  const headmatter = slides[0]?.frontmatter || {}
-  headmatter.title = headmatter.title || slides[0]?.title
+  const headmatter = cards[0]?.frontmatter || {}
+  headmatter.title = headmatter.title || cards[0]?.title
   const config = resolveConfig(headmatter, themeMeta, filepath)
   const features = detectFeatures(markdown)
 
   return {
     raw: markdown,
     filepath,
-    slides,
+    cards,
     config,
     features,
     headmatter,
@@ -127,7 +128,7 @@ export function detectFeatures(code: string): FlashcardDevFeatureFlags {
   }
   
 
-export function parseSlide(raw: string): FlashcardInfoBase {
+export function parseCard(raw: string): FlashcardInfoBase {
   const result = matter(raw)
   let note: string | undefined
   const frontmatter = result.data || {}
@@ -166,9 +167,9 @@ export function parseSlide(raw: string): FlashcardInfoBase {
 
 export function stringify(data: FlashcardDevMarkdown) {
   return `${
-    data.slides
-      .filter(slide => slide.source === undefined || slide.inline !== undefined)
-      .map((slide, idx) => stringifySlide(slide.inline || slide, idx))
+    data.cards
+      .filter(card => card.source === undefined || card.inline !== undefined)
+      .map((card, idx) => stringifyCard(card.inline || card, idx))
       .join('\n')
       .trim()
   }\n`
@@ -176,16 +177,16 @@ export function stringify(data: FlashcardDevMarkdown) {
 
 
 
-export function stringifySlide(data: FlashcardInfoBase, idx = 0) {
+export function stringifyCard(data: FlashcardInfoBase, idx = 0) {
   if (data.raw == null)
-    prettifySlide(data)
+    prettifyCard(data)
 
   return (data.raw.startsWith('---') || idx === 0)
     ? data.raw
     : `---\n${data.raw.startsWith('\n') ? data.raw : `\n${data.raw}`}`
 }
 
-export function prettifySlide(data: FlashcardInfoBase) {
+export function prettifyCard(data: FlashcardInfoBase) {
   data.content = `\n${data.content.trim()}\n`
   data.raw = Object.keys(data.frontmatter || {}).length
     ? `---\n${YAML.dump(data.frontmatter).trim()}\n---\n${data.content}`
@@ -198,7 +199,7 @@ export function prettifySlide(data: FlashcardInfoBase) {
 }
 
 export function prettify(data: FlashcardDevMarkdown) {
-  data.slides.forEach(prettifySlide)
+  data.cards.forEach(prettifyCard)
   return data
 }
 

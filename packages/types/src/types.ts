@@ -39,12 +39,11 @@ export interface FlashcardDevThemeMeta {
 }
 
 export interface FlashcardDevMarkdown {
-  slides: FlashcardInfo[]
+  cards: FlashcardInfo[]
   raw: string
   config: FlashcardDevConfig
   features: FlashcardDevFeatureFlags
   headmatter: Record<string, unknown>
-
   filepath?: string
   entries?: string[]
   themeMeta?: FlashcardDevThemeMeta

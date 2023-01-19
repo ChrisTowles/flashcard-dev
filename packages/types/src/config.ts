@@ -10,7 +10,7 @@ export interface FlashcardDevConfig {
    */
   titleTemplate: string
   /**
-   * Theme to use for the slides
+   * Theme to use for the cards
    *
    * @default 'default'
    */
@@ -63,7 +63,7 @@ export interface FlashcardDevConfig {
    */
   lineNumbers: boolean
   /**
-   * Force slides color schema
+   * Force cards color schema
    *
    * @default 'auto'
    */
@@ -75,14 +75,14 @@ export interface FlashcardDevConfig {
    */
   routerMode: 'hash' | 'history'
   /**
-   * Aspect ratio for slides
+   * Aspect ratio for cards
    * should be like `16/9` or `1:1`
    *
    * @default '16/9'
    */
   aspectRatio: number
   /**
-   * The actual width for slides canvas.
+   * The actual width for cards canvas.
    * unit in px.
    *
    * @default '980'
@@ -96,7 +96,7 @@ export interface FlashcardDevConfig {
    */
   exportFilename: string | null
   /**
-   * Controls whether texts in slides are selectable
+   * Controls whether texts in cards are selectable
    *
    * @default true
    */
@@ -112,7 +112,7 @@ export interface FlashcardDevConfig {
    */
   themeConfig: FlashcardDevThemeConfig
   /**
-   * Configure fonts for the slides and app
+   * Configure fonts for the cards and app
    *
    * @default {}
    */

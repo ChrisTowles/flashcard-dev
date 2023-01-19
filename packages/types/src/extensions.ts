@@ -2,7 +2,7 @@
 export interface FlashcardDevPreparserExtension {
     name: string
     transformRawLines?(lines: string[]): Promise<void>
-    transformSlide?(content: string, frontmatter: any): Promise<string | undefined>
+    transformCard?(content: string, frontmatter: any): Promise<string | undefined>
   }
   
   export type PreparserExtensionLoader = (headmatter?: Record<string, unknown>, filepath?: string) => Promise<FlashcardDevPreparserExtension[]>

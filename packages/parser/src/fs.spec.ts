@@ -18,7 +18,7 @@ describe('md parser', () => {
 
       prettify(data)
 
-      for (const slide of data.slides) {
+      for (const slide of data.cards) {
         if (slide.source?.filepath)
           // @ts-expect-error non-optional
           delete slide.source.filepath
@@ -27,7 +27,7 @@ describe('md parser', () => {
           // @ts-expect-error extra prop
           delete slide.filepath
       }
-      expect(data.slides).toMatchSnapshot('slides')
+      expect(data.cards).toMatchSnapshot('cards')
       expect(data.config).toMatchSnapshot('config')
       expect(data.features).toMatchSnapshot('features')
     })
@@ -55,11 +55,11 @@ e
 f
 
 `})
-    expect(data.slides.map(i => i.content.trim()))
+    expect(data.cards.map(i => i.content.trim()))
       .toEqual(Array.from('abcdef'))
-    expect(data.slides[2].frontmatter)
+    expect(data.cards[2].frontmatter)
       .toEqual({ layout: 'z' })
-    expect(data.slides[3].frontmatter)
+    expect(data.cards[3].frontmatter)
       .toEqual({ })
   })
 
@@ -85,11 +85,11 @@ e
 f
 
 `})
-    expect(data.slides.map(i => i.content.trim()))
+    expect(data.cards.map(i => i.content.trim()))
       .toEqual(Array.from('abcdef'))
-    expect(data.slides[2].frontmatter)
+    expect(data.cards[2].frontmatter)
       .toEqual({ layout: 'z' })
-    expect(data.slides[3].frontmatter)
+    expect(data.cards[3].frontmatter)
       .toEqual({ })
   })
 
@@ -119,7 +119,7 @@ b
         }
       })
 
-    expect(data.slides.map(i => i.content.trim().replace(/\n/g, '%')).join('/'))
+    expect(data.cards.map(i => i.content.trim().replace(/\n/g, '%')).join('/'))
       .toEqual('a thing/b%thing%%thing = thing')
   })
 
@@ -142,7 +142,7 @@ b
         }
       })
 
-    expect(data.slides.map(i => i.content.trim().replace(/\n/g, '%')).join('/'))
+    expect(data.cards.map(i => i.content.trim().replace(/\n/g, '%')).join('/'))
       .toEqual('a @@v@@/b%@@v@@%%@@v@@ = @@v@@')
   })
 
@@ -175,13 +175,13 @@ background: ${i}${more}
         }
       })
 
-    expect(data.slides.map(s => s.content.trim().replace(/\n/g, '%')).join('/'))
+    expect(data.cards.map(s => s.content.trim().replace(/\n/g, '%')).join('/'))
       .toEqual('/# 2/# 3/'.replace(/\n/g, '%'))
-    expect(data.slides[0].frontmatter)
+    expect(data.cards[0].frontmatter)
       .toEqual({ layout: 'cover', background: '1.jpg' })
-    expect(data.slides[1].frontmatter)
+    expect(data.cards[1].frontmatter)
       .toEqual({ layout: 'cover', background: '2.jpg' })
-    expect(data.slides[3].frontmatter)
+    expect(data.cards[3].frontmatter)
       .toEqual({ layout: 'cover', background: '4.jpg' })
   })
 
@@ -207,7 +207,7 @@ a.a.A.A
           },
         },]
       })
-    expect(data.slides.map(i => i.content.trim().replace(/\n/g, '%')).join('/'))
+    expect(data.cards.map(i => i.content.trim().replace(/\n/g, '%')).join('/'))
       .toEqual('C..B%C.C.B.B%.C.B.')
   })
 
@@ -250,7 +250,7 @@ ${withSlideAfter
 ..
 `
               : ''}`, transformRawLines: undefined, more: {
-                transformSlide(content: string, frontmatter: any) {
+                transformCard(content: string, frontmatter: any) {
                   const lines = content.split('\n')
                   let i = 0
                   let appendBeforeCount = 0
@@ -278,7 +278,7 @@ ${withSlideAfter
         // like the trim in other tests, the goal is not to test newlines here
         return s.replace(/%%%*/g, '%')
       }
-      expect(project(data.slides.map(i => i.content.replace(/\n/g, '%')).join('/')))
+      expect(project(data.cards.map(i => i.content.replace(/\n/g, '%')).join('/')))
         .toEqual(project([
           ...withSlideBefore ? ['./'] : [],
           ...prependContent ? ['<a>%<b>%'] : [],
@@ -288,7 +288,7 @@ ${withSlideAfter
         ].join('')))
 
       if (withFrontmatter || addFrontmatter) {
-        expect(data.slides[withSlideBefore ? 1 : 0].frontmatter)
+        expect(data.cards[withSlideBefore ? 1 : 0].frontmatter)
           .toEqual({
             ...withFrontmatter ? { m: 'M', n: 'N' } : {},
             ...addFrontmatter ? { adda: 'add', addb: 'add' } : {},

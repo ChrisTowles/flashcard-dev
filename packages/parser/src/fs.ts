@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs'
 import { dirname, resolve } from 'path'
 import type { PreparserExtensionLoader, FlashcardInfo, FlashcardInfoWithPath, FlashcardDevMarkdown, FlashcardDevPreparserExtension, FlashcardDevThemeMeta } from '@flashcard-dev/types'
-import { detectFeatures, mergeFeatureFlags, parse, stringify, stringifySlide } from './core'
+import { detectFeatures, mergeFeatureFlags, parse, stringify, stringifyCard } from './core'
 export * from './core'
 
 let preparserExtensionLoader: PreparserExtensionLoader | null = null
@@ -26,64 +26,64 @@ export async function load(filepath: string, themeMeta?: FlashcardDevThemeMeta, 
 
   const entries = new Set([filepath,  ])
 
-  for (let iSlide = 0; iSlide < data.slides.length;) {
-    const baseSlide = data.slides[iSlide]
-    if (!baseSlide.frontmatter.src) {
-      iSlide++
+  for (let iCard = 0; iCard < data.cards.length;) {
+    const baseCard = data.cards[iCard]
+    if (!baseCard.frontmatter.src) {
+      iCard++
       continue
     }
 
-    data.slides.splice(iSlide, 1)
+    data.cards.splice(iCard, 1)
 
-    if (baseSlide.frontmatter.hide)
+    if (baseCard.frontmatter.hide)
       continue
 
-    const srcExpression = baseSlide.frontmatter.src
+    const srcExpression = baseCard.frontmatter.src
     let path
     if (srcExpression.startsWith('/'))
       path = resolve(dir, srcExpression.substring(1))
-    else if (baseSlide.source?.filepath)
-      path = resolve(dirname(baseSlide.source.filepath), srcExpression)
+    else if (baseCard.source?.filepath)
+      path = resolve(dirname(baseCard.source.filepath), srcExpression)
     else
       path = resolve(dir, srcExpression)
 
     const raw = await fs.readFile(path, 'utf-8')
-    const subSlides = await parse({ markdown: raw, filepath: path, themeMeta: themeMeta, extensions: preparserExtensions })
+    const subCards = await parse({ markdown: raw, filepath: path, themeMeta: themeMeta, extensions: preparserExtensions })
 
-    for (const [offset, subSlide] of subSlides.slides.entries()) {
-      const slide: FlashcardInfo = { ...baseSlide }
+    for (const [offset, subCard] of subCards.cards.entries()) {
+      const card: FlashcardInfo = { ...baseCard }
 
-      slide.source = {
+      card.source = {
         filepath: path,
-        ...subSlide,
+        ...subCard,
       }
 
-      if (offset === 0 && !baseSlide.frontmatter.srcSequence) {
-        slide.inline = { ...baseSlide }
-        delete slide.inline.frontmatter.src
-        Object.assign(slide, slide.source, { raw: null })
+      if (offset === 0 && !baseCard.frontmatter.srcSequence) {
+        card.inline = { ...baseCard }
+        delete card.inline.frontmatter.src
+        Object.assign(card, card.source, { raw: null })
       }
       else {
-        Object.assign(slide, slide.source)
+        Object.assign(card, card.source)
       }
 
-      const baseSlideFrontMatterWithoutSrc = { ...baseSlide.frontmatter }
+      const baseSlideFrontMatterWithoutSrc = { ...baseCard.frontmatter }
       delete baseSlideFrontMatterWithoutSrc.src
 
-      slide.frontmatter = {
-        ...subSlide.frontmatter,
+      card.frontmatter = {
+        ...subCard.frontmatter,
         ...baseSlideFrontMatterWithoutSrc,
-        srcSequence: `${baseSlide.frontmatter.srcSequence ? `${baseSlide.frontmatter.srcSequence},` : ''}${srcExpression}`,
+        srcSequence: `${baseCard.frontmatter.srcSequence ? `${baseCard.frontmatter.srcSequence},` : ''}${srcExpression}`,
       }
 
       data.features = mergeFeatureFlags(data.features, detectFeatures(raw))
       entries.add(path)
-      data.slides.splice(iSlide + offset, 0, slide)
+      data.cards.splice(iCard + offset, 0, card)
     }
   }
-  // re-index slides
-  for (let iSlide = 0; iSlide < data.slides.length; iSlide++)
-    data.slides[iSlide].index = iSlide === 0 ? 0 : 1 + data.slides[iSlide - 1].index
+  // re-index cards
+  for (let iCard = 0; iCard < data.cards.length; iCard++)
+    data.cards[iCard].index = iCard === 0 ? 0 : 1 + data.cards[iCard - 1].index
 
   data.entries = Array.from(entries)
 
@@ -96,6 +96,6 @@ export async function save(data: FlashcardDevMarkdown, filepath?: string) {
   await fs.writeFile(updatedFilepath, stringify(data), 'utf-8')
 }
 
-export async function saveExternalSlide(slide: FlashcardInfoWithPath) {
-  await fs.writeFile(slide.filepath, stringifySlide(slide), 'utf-8')
+export async function saveExternalSlide(card: FlashcardInfoWithPath) {
+  await fs.writeFile(card.filepath, stringifyCard(card), 'utf-8')
 }

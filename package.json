@@ -11,7 +11,7 @@
   "license": "MIT",
   "author": "Chris Towles <chris.towles.dev01@gmail.com>",
   "scripts": {
-    "test": "vitest test",
+    "test": "vitest --run",
     "upgrade:write": "taze --recursive --write --install",
     "upgrade:check": "taze --recursive"
   },
