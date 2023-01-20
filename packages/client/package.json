@@ -1,0 +1,39 @@
+{
+  "name": "@flashcard-dev/client",
+  "version": "0.0.1",
+  "description": "Client for Flashcard-dev",
+  "author": "Chris Towles <chris.towles.dev01@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/ChrisTowles/flashcard-dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChrisTowles/flashcard-dev"
+  },
+  "bugs": "https://github.com/ChrisTowles/flashcard-dev/issues",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "index.d.ts",
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --splitting",
+    "dev": "nr build --watch",
+    "prepublishOnly": "npm run build",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@antfu/utils": "^0.7.2",
+    "@flashcard-dev/types": "workspace:*",
+    "@flashcard-dev/parser": "workspace:*"
+    
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^12.2.3",
+    "tsup": "^5.12.9"
+  }
+}

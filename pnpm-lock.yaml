@@ -52,6 +52,21 @@ importers:
       yargs: 17.6.2
       zx: 7.1.1
 
+  packages/client:
+    specifiers:
+      '@antfu/utils': ^0.7.2
+      '@flashcard-dev/parser': workspace:*
+      '@flashcard-dev/types': workspace:*
+      '@types/markdown-it': ^12.2.3
+      tsup: ^5.12.9
+    dependencies:
+      '@antfu/utils': 0.7.2
+      '@flashcard-dev/parser': link:../parser
+      '@flashcard-dev/types': link:../types
+    devDependencies:
+      '@types/markdown-it': 12.2.3
+      tsup: 5.12.9
+
   packages/parser:
     specifiers:
       '@antfu/utils': ^0.7.2
