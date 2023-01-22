@@ -17,11 +17,35 @@
     "upgrade:write": "taze --recursive --write --install",
     "upgrade:check": "taze --recursive"
   },
-  "devDependencies": {
+  "devDependencies": { 
+    "@antfu/eslint-config": "^0.34.0",
+    "vite-plugin-vue-server-ref": "^0.3.0",
+    "@antfu/utils": "^0.7.2",
+    "vite-plugin-windicss": "^1.8.10",
+    "@flashcard-dev/cli": "workspace:*",
+    "@flashcard-dev/parser": "workspace:*",
+    "@flashcard-dev/types": "workspace:*",
+    "@types/cli-progress": "^3.11.0",
+  "@types/codemirror": "^5.60.5",
+  "@types/connect": "^3.4.35",
+  "@types/debug": "^4.1.7",
+  "@types/file-saver": "^2.0.5",
+  "@types/fs-extra": "^9.0.13",
+
+  "@types/katex": "^0.14.0",
+  "@types/markdown-it": "^12.2.3",
+  "@types/mermaid": "^9.2.0",
+  "@types/node": "^18.11.17",
+  "@types/prettier": "^2.7.1",
+  "@types/prismjs": "^1.26.0",
+  "@types/prompts": "^2.4.2",
+  "@types/recordrtc": "^5.6.10",
+  "@types/resolve": "^1.20.2",
+  "@types/semver": "^7.3.13",
+  "@types/yargs": "^17.0.17",
+    
     "@antfu/ni": "^0.18.8",
-    "@types/node": "^18.11.18",
-    "@types/prompts": "^2.4.2",
-    "@types/yargs": "^17.0.20",
+
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",
     "bumpp": "^8.2.1",
@@ -40,7 +64,16 @@
     "vite": "^4.0.4",
     "vitest": "^0.26.3",
     "yargs": "^17.6.2",
-    "zx": "^7.1.1"
+    "zx": "^7.1.1",
+
+    "@vueuse/core": "^9.7.0",
+    "cypress": "^12.1.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "katex": "^0.16.4",
+    "mermaid": "^9.3.0",
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
+    
   },
   "packageManager": "pnpm@7.12.0",
   "engines": {

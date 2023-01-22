@@ -7,7 +7,7 @@ import Markdown from 'markdown-it'
 import type { RouteMeta } from 'vue-router'
 // @ts-expect-error missing types
 import mila from 'markdown-it-link-attributes'
-import type { FlashcardDevInfo, FlashcardDevMarkdown } from '@flashcard-dev/types'
+import type { FlashcardInfo, FlashcardInfoExtended, FlashcardDevMarkdown } from '@flashcard-dev/types'
 import * as parser from '@flashcard-dev/parser'
 import equal from 'fast-deep-equal'
 
@@ -58,7 +58,7 @@ md.use(mila, {
   },
 })
 
-function prepareSlideInfo(data: SlideInfo): SlideInfoExtended {
+function prepareSlideInfo(data: FlashcardInfo): FlashcardInfoExtended {
   return {
     ...data,
     notesHTML: md.render(data?.note || ''),
@@ -334,11 +334,11 @@ export function createSlidesLoader(
     server.watcher.add(data.entries?.map(slash) || [])
   }
 
-  async function transformMarkdown(code: string, pageNo: number, data: SlidevMarkdown) {
+  async function transformMarkdown(code: string, pageNo: number, data: FlashcardDevMarkdown) {
     const layouts = await getLayouts()
     const frontmatter = {
       ...(data.headmatter?.defaults as object || {}),
-      ...(data.slides[pageNo]?.frontmatter || {}),
+      ...(data.cards[pageNo]?.frontmatter || {}),
     }
     const layoutName = frontmatter?.layout || (pageNo === 0 ? 'cover' : 'default')
     if (!layouts[layoutName])
@@ -492,31 +492,21 @@ defineProps<{ no: number | string }>()`)
     if (data.features.katex)
       imports.push(`import "${toAtFS(resolveImportPath('katex/dist/katex.min.css', true))}"`)
 
-    if (data.config.css === 'unocss') {
-      imports.unshift(
-        'import "@unocss/reset/tailwind.css"',
-        'import "uno:preflights.css"',
-        'import "uno:typography.css"',
-        'import "uno:shortcuts.css"',
-      )
-      imports.push('import "uno.css"')
-    }
-    else {
-      imports.unshift(
-        'import "virtual:windi-components.css"',
-        'import "virtual:windi-base.css"',
-      )
-      imports.push(
-        'import "virtual:windi-utilities.css"',
-        'import "virtual:windi-devtools"',
-      )
-    }
+  
+    imports.unshift(
+      'import "@unocss/reset/tailwind.css"',
+      'import "uno:preflights.css"',
+      'import "uno:typography.css"',
+      'import "uno:shortcuts.css"',
+    )
+    imports.push('import "uno.css"')
+    
 
     return imports.join('\n')
   }
 
   async function generateMonacoTypes() {
-    return `void 0; ${parser.scanMonacoModules(data.raw).map(i => `import('/@slidev-monaco-types/${i}')`).join('\n')}`
+    return `void 0;`// ${parser.scanMonacoModules(data.raw).map(i => `import('/@slidev-monaco-types/${i}')`).join('\n')}`
   }
 
   async function generateLayouts() {
@@ -543,7 +533,7 @@ defineProps<{ no: number | string }>()`)
 
     let no = 1
     const routes = [
-      ...data.slides
+      ...data.cards
         .map((i, idx) => {
           if (i.frontmatter?.disabled)
             return undefined

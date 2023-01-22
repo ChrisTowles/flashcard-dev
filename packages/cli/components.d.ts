@@ -7,9 +7,27 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Arrow: typeof import('./../client/builtin/Arrow.vue')['default']
+    AutoFitText: typeof import('./../client/builtin/AutoFitText.vue')['default']
+    CodeBlockWrapper: typeof import('./../client/builtin/CodeBlockWrapper.vue')['default']
+    Link: typeof import('./../client/builtin/Link.vue')['default']
+    Mermaid: typeof import('./../client/builtin/Mermaid.vue')['default']
+    Monaco: typeof import('./../client/builtin/Monaco.vue')['default']
+    PlantUml: typeof import('./../client/builtin/PlantUml.vue')['default']
+    RenderWhen: typeof import('./../client/builtin/RenderWhen.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SlideCurrentNo: typeof import('./../client/builtin/SlideCurrentNo.vue')['default']
+    SlidesTotal: typeof import('./../client/builtin/SlidesTotal.vue')['default']
     Starport: typeof import('vue-starport')['Starport']
     StarportCarrier: typeof import('vue-starport')['StarportCarrier']
+    Toc: typeof import('./../client/builtin/Toc.vue')['default']
+    TocList: typeof import('./../client/builtin/TocList.vue')['default']
+    Transform: typeof import('./../client/builtin/Transform.vue')['default']
+    Tweet: typeof import('./../client/builtin/Tweet.vue')['default']
+    VAfter: typeof import('./../client/builtin/VAfter.ts')['default']
+    VClick: typeof import('./../client/builtin/VClick.ts')['default']
+    VClicks: typeof import('./../client/builtin/VClicks.ts')['default']
+    Youtube: typeof import('./../client/builtin/Youtube.vue')['default']
   }
 }

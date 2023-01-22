@@ -30,7 +30,13 @@ export interface FlashcardDevFeatureFlags {
   mermaid: boolean
 }
 
+export interface FlashcardInfoExtended extends FlashcardInfo {
+  notesHTML: string
+}
+
 export type FlashcardDevThemeConfig = Record<string, string | number>
+
+
 
 export interface FlashcardDevThemeMeta {
   defaults?: Partial<FlashcardDevConfig>
@@ -48,3 +54,5 @@ export interface FlashcardDevMarkdown {
   entries?: string[]
   themeMeta?: FlashcardDevThemeMeta
 }
+
+export type RenderContext = 'slide' | 'overview' | 'presenter' | 'previewNext'
