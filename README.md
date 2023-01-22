@@ -1,6 +1,14 @@
-# Flashcard-Dev
+# Flashcard-Dev - ARCHIVED
 
 Markdown Based Flashcards using Spaced repetition for Developers
+
+## IMPORTANT
+
+I'm archiving this repo. In this repo I tried starting with an empty repo and coping `slide`v parts I needed but I honestly got lost somewhere along the way. The plugin and addon system I never got working right while trying to remove things I didn't plan on supporting.
+
+I'm going to start again, this time just forking `slidev` and removing pieces and functionality but while always keeping the repo in a running state. I learned a lot by going over the code and am sure I'll learn even more next time.
+
+-------------
 
 ## Why
 
