@@ -13,7 +13,7 @@ Learn more: https://sli.dev/guide/syntax.html#line-highlighting
 
 <script setup lang="ts">
 import { range, remove } from '@antfu/utils'
-import { parseRangeString } from '@slidev/parser/core'
+import { parseRangeString } from '@flashcard-dev/parser'
 import { useClipboard } from '@vueuse/core'
 import { computed, getCurrentInstance, inject, onMounted, onUnmounted, ref, watchEffect } from 'vue'
 import { configs } from '../env'

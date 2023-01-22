@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { parseRangeString } from '@slidev/parser/core'
+import { parseRangeString } from '@flashcard-dev/parser'
 import { computed, provide } from 'vue'
 import { configs, slideAspect, slideWidth } from '../env'
 import { injectionSlideScale } from '../constants'
@@ -24,7 +24,7 @@ const scale = computed(() => {
 // Remove the "end" slide
 let routes = rawRoutes.slice(0, -1)
 if (route.value.query.range) {
-  const r = parseRangeString(routes.length, route.value.query.range)
+  const r = parseRangeString(routes.length,  route.value.query.range as string)
   routes = r.map(i => routes[i - 1])
 }
 
