@@ -174,7 +174,10 @@ export function stringify(data: FlashcardDevMarkdown) {
       .trim()
   }\n`
 }
-
+export function filterDisabled(data: FlashcardDevMarkdown) {
+  data.cards = data.cards.filter(i => !i.frontmatter?.disabled)
+  return data
+}
 
 
 export function stringifyCard(data: FlashcardInfoBase, idx = 0) {

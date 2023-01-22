@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "nodemon -w '../../packages/cli/dist/*.js' --exec \"flashcard-dev ./slides.md --open=false --log=info\""
+  },
+  "devDependencies": {
+    "@flashcard-dev/cli": "workspace:*",
+    
+    "@flashcard-dev/types": "workspace:*",
+    "nodemon": "^2.0.20"
+  }
+}
